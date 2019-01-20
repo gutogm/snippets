@@ -5,9 +5,9 @@ set -e;
 
 region=$1;
 volId=$2;
-server=$3;
+description=$3;
 
-result=$(aws --region "$region" ec2 create-snapshot --volume-id "$volId" --description "$(date +%Y-%m-%d.%H)/snap:$server");
+result=$(aws --region "$region" ec2 create-snapshot --volume-id "$volId" --description "$(date +%Y-%m-%d.%H)/snap:$description");
 echo "$result";
 
 snapId=$(echo "$result" | jq -r '.SnapshotId')

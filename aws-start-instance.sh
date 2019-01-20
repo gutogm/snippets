@@ -4,7 +4,6 @@ start=`date +%s`
 
 region="$1";
 instanceId="$2";
-server="$3";
 
 aws --region "$region" ec2 start-instances --instance-ids "$instanceId";
 
